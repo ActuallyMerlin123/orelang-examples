@@ -1,0 +1,16 @@
+#link ("std/mio")
+
+func main(void) -> int
+{
+    str u_in;
+    u_in.setBuffer(64);
+    mio=>print("Enter user input: ");
+    mio=>getin(u_in);
+
+    if (u_in == "hello, world") {
+        mio=>print("hello!", mio=>newl);
+        return 0;
+    } else {
+        return 1;
+    }
+}

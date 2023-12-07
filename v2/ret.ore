@@ -1,0 +1,18 @@
+#linkex ("std/mio") {"print", "printerr"}
+#link ("std/posix")
+
+// Classic Method
+
+func main(void) -> code
+{
+    mio=>print("hello, world", mio=>newl);
+    return code.success;
+}
+
+func main(void) -> int
+{
+    str msg = "hello, world\n";
+    posix=>write(1, msg.len() - 1);
+
+    return 0;
+}

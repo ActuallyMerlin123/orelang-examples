@@ -1,0 +1,33 @@
+/* DATATYPES IN ORE */
+
+#link "stdmio" as stdlib
+#link "stdmem" as stdlib
+#link "coremath/complex" as stdlib
+
+
+init main(void) -> code
+{
+    /* integers */
+    int num num = 42; /* 16 BIT */
+    mem=>i8 num = 42 /* 8 BIT */
+    mem=>i32 num = 428 /* 32 BIT */
+    mem=>i64 num = 4356 /* 64 BIT */
+    mem=>i128 num = 123456789 /* 128 BIT */
+    mem=>integer num = 34278573284597234985723495823745 /* DYN BIT */
+
+    /* floats */
+    float num = 0.00004;
+    mem=>f32 num = 0.9999; /* 32 BIT */
+    mem=>f64 num = 0.92384902348 /* 64 BIT */
+    mem=>floating num = 3.141592653589793238462643383279502884197169; /* DYN BIT */
+
+    /* char */
+    char num = 'a'; /* 8 BIT */
+
+    /* string */
+    str string = "Kindness is free; sprinkle it everywhere."
+
+    /* complex */ 
+    more in the math example
+
+}

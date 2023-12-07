@@ -1,0 +1,34 @@
+/*
+ * filesystem in ore
+ * by Gleo
+ * date: 27/11/23
+ */
+
+#link "stdmio" as stdlib
+#link "stdfs"  as stdlib
+
+init writeToFile(str filename, str content) {
+    
+    fs=>FILE file(filename);
+    file.mode("w");
+    file.open();
+
+    if (file.failed()) {
+        mio=>printerr("Im sorry, but i could not write to file\n");
+        file.close();
+        ret;
+    }
+
+    file.write(content, file.append)
+    file.close();
+
+    mio=>printerr("Printed to file.\n");
+}
+
+init main(void) -> code
+{
+    str filename = "file.sfx";
+    str content  = "Hello, World!";
+    writeToFile(filename, content);
+    ret code.success;
+}

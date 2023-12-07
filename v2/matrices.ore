@@ -1,0 +1,6 @@
+#link ("std/mio") {"print", "printerr"}
+#link ("std/math") {"matrix"}
+
+func main(void) -> int {
+    math=>matrix<x, y> Matrix;
+}

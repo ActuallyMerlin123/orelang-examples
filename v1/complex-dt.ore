@@ -1,0 +1,24 @@
+/* COMPLEX DATA TYPES IN ORE */
+
+/* by Gleo */
+
+#link "stdmio" as stdlib
+#link "stdobj" as stdlib
+
+
+struct Person {
+    str name;
+    int age;
+    int net_worth;
+    str job;
+    str salary;
+}
+
+init main(void) -> code
+{
+    Person Doe;
+    Doe.name = "John Doe";
+
+    mio=>print(Doe.name);
+    ret code.success;
+}

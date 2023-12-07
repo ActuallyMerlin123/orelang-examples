@@ -1,0 +1,11 @@
+/* To Memory Allocate On The Heap; by Gleo */
+
+#link "stdmio" as stdlib
+#link "stdmem" as stdlib
+
+
+init main(void) -> code
+{
+    int ptr num = mem=>alloc(int, 10)
+    ret code.success;
+}

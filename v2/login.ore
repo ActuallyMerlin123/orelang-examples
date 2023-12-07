@@ -1,0 +1,20 @@
+#link ("std/mio")
+#link ("std/mem") {"pointer", "memset"}
+
+#macro PASSKEY "pass1234"
+
+func main(void) -> int {
+    str password;
+    mio=>print("Enter your password: ");
+    mio=>getin(password);
+
+    mem=>ptr<str> user_password(password);
+
+    if (user_password == PASSKEY) {
+        mio=>print("Success! :)", mio=>newl);
+        return 0;
+    } else {
+        mio=>printerr("Failure. :(", mio=>newl);
+        return 1;
+    }
+}

@@ -1,0 +1,23 @@
+/* File Rights in Ore
+   by Gleo
+   */
+
+#link "stdmio" as stdlib
+#link "stdfs"  as stdlib
+
+init main(void) -> code
+{
+    str filename = "file.sfx";
+
+    fs=>FILE file(filename);
+    file.create();
+    file.chmod(user.rights("r"));
+
+    if (file.failed()) {
+        ret code.failure;
+    }
+
+    mio=>print("Created file\n");
+
+    ret code.success;
+}

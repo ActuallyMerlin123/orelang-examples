@@ -1,0 +1,18 @@
+/* Casting in Ore */
+    /* Gleo */
+
+#link "stdmio" as stdlib
+#link "stdmem" as stdlib
+
+
+init main(void) -> code
+{
+    /* Basic Casting */
+    float num = 434.23;
+
+    int number = (int) num;
+
+    /* Smart Casting */
+    str name = "John";
+    int ascii_name = mem=>cast(int, name);
+}

@@ -1,0 +1,27 @@
+/*
+USER INPUT in Orelang
+by Gleo
+*/
+
+#link "stdmio" as stdlib
+#link "stdabc" as stdlib
+#link "stdmem" as stdlib
+#link "posix"  as stdlib /* or: */
+#link "cunistd" as ext
+
+
+init main(void) -> code
+{
+    /* 1 */
+    str user_input;
+    mio=>print("Enter user input: ");
+    mio=>getin(user_input);
+
+    /* 2 */
+    str user_input;
+    abc=>input("Enter user input: ", user_input);
+
+    /* 3 */
+    posix=>read();
+
+}

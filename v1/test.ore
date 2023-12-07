@@ -1,0 +1,12 @@
+/*
+*/
+#link "stdmio" as stdlib
+
+
+init main(void) -> code
+{
+    str msg = "hello, world";
+    mio=>print(msg, mio=>newl);
+
+    ret code.success;
+}

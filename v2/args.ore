@@ -1,0 +1,27 @@
+#link ("std/mio") {"print", "printerr"}
+#link ("std/merl") {"cast"}
+#link ("std/args")
+
+/* Traditional */
+func main(int* argc, char** argv)
+{}
+
+/* Intermediate */
+func main(args=>pargs()) {}
+
+/* New */
+func main(vec<str> args(args=>gargs())) {
+    if (args.size()  > 0) {
+        for (int i = 0; i < args.size(); i++) {
+            if (args[i] in {"--version", "-v"}) {
+                mio=>lprint(/* Version Number */);
+                return 0;
+            } else if (args[i] in {"--help", "-h"}) {
+                mio=>lprint(/* Help context */);
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+    }
+}

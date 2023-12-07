@@ -1,0 +1,12 @@
+/* C Language intgration in Ore */
+
+#link "stdmio" as stdlib
+#link "stdmem" as stdlib
+#link "stdlibc" as stdstdstdlib
+
+
+init main(void) -> code {
+    int ptr message = c=>malloc(c=>sizeof(int) * 10)
+    message[0] = 190;
+    c=>free(message);
+}

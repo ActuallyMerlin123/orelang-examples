@@ -1,0 +1,19 @@
+/*
+ * LAMBDAS
+ * Gleo
+ */
+
+ /* This is a Demonstration of lambdas in orelanguage */
+
+#link "stdmio" as stdlib
+
+
+init main(void) -> code
+{
+    int x = 34;
+    int y = 21;
+
+    auto     
+    ret code.success;
+
+}

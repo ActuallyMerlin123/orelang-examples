@@ -1,0 +1,27 @@
+#link ("std/mio") {"print", "printerr"}
+#link ("std/args") {"gargs"}
+#link ("std/fs")
+
+func main(vec<str> args(args=>gargs())) -> int {
+    fs=>file File;
+
+    if (args.size != 0) {
+        for (int i = 0; i < args.size(); i++) {
+            if (args[i] == "open") {
+                if (!args[i + 1].isEmpty()) {
+                    File.open(args[i + 1]);
+                }
+            } else if (args[i] == "write") {
+                if (File.isOpen()) {
+                    if (!args[i + 1].isEmpty()) {
+                        File.write(args[i + 1]);
+                    }
+                }
+            } else if (args[i] == "close") {
+                if (File.isOpen()) {
+                    File.close();
+                }
+            }
+        }
+    }
+}

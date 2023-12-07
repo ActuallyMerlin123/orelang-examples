@@ -1,0 +1,21 @@
+/**
+ * @file memory
+ */
+
+#link ("std/mio"){"print", "printerr"}
+#link ("std/mem")
+
+func main(void) -> int 
+{
+    /* Pointers */
+    str msg = "hello, world\n";
+    get message = mem=>ptr<str>(msg); // or
+    mem=>ptr<str> message(msg); // or
+    (ptr) str message = mem=>gaddr(msg);
+    mio=>print(message.RAW);
+
+    /* Heap allocation */
+    // obj
+    obj Object = mem=>ptr<obj>(mem=>alloc(obj()));
+    Object.method();
+}

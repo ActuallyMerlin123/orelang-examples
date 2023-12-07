@@ -1,0 +1,15 @@
+/* MATH in ore; by GLeo */
+
+#link "stdmio" as stdlib
+#link "stdmath" as stdlib
+
+
+init main(void) -> code
+{
+    /* Logarithm */
+    int num = 42;
+    int base = 8;
+
+    int result = math=>log(base, num) /* OR: */
+    int result = math=>ln(num)        /* OR: */
+}

@@ -1,0 +1,21 @@
+/* VECTOR */
+/* in Ore */
+/* by Gleo */
+
+#link "stdmio" as stdlib
+#link "stdvec" as stdlib
+
+
+init main(void) -> code
+{
+    vec str Array = {"hello, world! ", "What is going on? ", "How is it going?"};
+    for (int i = 0 : Array.size()) {
+        mio=>print(Array[i]);
+    }
+    mio=>print("\n");
+
+    /* ARRAY METHODS */
+    Array.size(); /* shows size */
+    Array.instance(1); /* can be used for */
+    str Bell = Array.instance(1);
+}

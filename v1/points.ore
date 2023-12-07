@@ -1,0 +1,12 @@
+/* Pointers in ore; Gleo */
+
+#link "stdmio" as stdlib
+#link "stdmem" as stdlib
+
+
+init main(void) -> code
+{
+    /* basic pointer */
+    str message = "hello, world\n";
+    str ptr message_ptr = message;
+}

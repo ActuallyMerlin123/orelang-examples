@@ -1,0 +1,38 @@
+/* Output to Console in Ore */
+/* by Gleo */
+
+#link "stdmio" as stdlib
+#link "stdabc" as stdlib
+#link "posix"  as ext
+#link "stdmem" as stdlib
+
+init main(void) -> code
+{
+    /* 1 */
+    mio=>print("hello, world\n");             /* OR: */
+    mio=>printerr("hello, world", mio=>newl); /* OR: */
+    #log 1
+    mio=>printlog("hello, world\n", 1); /* 1 represent priority of logging */
+    
+    /* 2 */ /* ABC */
+    abc=>output("hello, world");
+
+    /* 3 */ /* POSIX */
+    str output = "hello, world\n";
+    posix=>write(1, output.len() - 1);
+
+    /* 4 */ /* x86 ASM */
+    str output = "hello, world\n";
+
+    asm (
+        "movl $4, %%eax \n"     /* syscall num: sys_write */
+        "movl $1, %%ebx \n"     /* STDOUT */
+        "movq %0, %%rcx \n"     /* message adress */
+        "movl $14, %%edx \n"    /* message length */
+        "int $0x80 \n"          /* invoke syscall */
+        :
+        : "r"(output)
+        : "eax", "ebx", "ecx", "edx"
+
+    );
+}

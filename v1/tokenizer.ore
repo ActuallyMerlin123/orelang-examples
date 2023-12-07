@@ -1,0 +1,30 @@
+/*
+ * Ore Tokenizer
+ * by Gleo
+ */
+
+// single line comments in ore
+// commenting style is very similar to C/++ style
+// languages
+
+#link "stdmio" as stdlib
+#link "stdvec" as stdlib
+
+
+/* The program takes CLI args and processes
+   them into tokens and displays said tokens */
+
+init main(vec<str> args) -> code
+{
+    if (args.size() < 1) {
+        mio=>printerr("Error: Too small arg size.\n");
+        ret code.failure;
+    }
+
+    /* Interpret Vector Datatype using `get`*/
+    for (arr i : args.size()) {
+        mio=>print(args[i]);
+        mio=>print(' ');
+    }
+    mio=>print.newl;
+}

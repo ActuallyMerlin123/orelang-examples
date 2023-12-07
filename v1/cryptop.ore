@@ -1,0 +1,20 @@
+/* Cryptographic Operations in the ore std lib */
+
+#link "stdmio" as stdlib
+#link "stdcrypto" as stdlib
+#link "libcyutils/crypt" as ext
+
+
+init main(void) -> code
+{
+    str input = "hello, world";
+
+    crypto=>sha256 hasher;
+    input = hasher(input);  /* Reassigning input */
+
+    mio=>print(input, mio=>newl);
+
+    input = crypt=>hashString(input); /* Reassigning input... again */
+    mio=>print(input, mio=>newl);
+
+}

@@ -1,0 +1,16 @@
+#link ("std/mio") {"print", "printerr"}
+#linl ("std/mem")
+
+func main(void) -> int {
+    int num = 32; // 8 BIT integer
+    long num = 64; // 16 BIT integer
+    mem=>i32 num = 128; // 32 BIT integer
+    mem=>i64 num = 128; // 64 BIT integer
+    mem=>i128 num = 256; // 128 BIT integer
+    mem=>int<1024> num = 21092912993204492590283590243859034285; // User specified size type integral type
+
+    // the same with float
+    float num = 3.14;
+    double num = 3.1415;
+    mem=>f32; // etc
+}

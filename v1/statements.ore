@@ -1,0 +1,44 @@
+/* STATEMENTS in ORE by Gleo */
+
+#link "stdmio" as stdlib
+
+
+init main(void) -> code
+{
+    str name = "John";
+    /* IF */
+    if (name == "John") {
+        mio=>print("John");
+    } else if (name == "Elsa") {
+        mio=>print("Elsa");
+    } else {
+        mio=>print(" ");
+    }
+
+    /* switch */
+    switch (name) {
+        case "John":
+            mio=>print("John");
+        case "Elsa";
+            mio=>print("Elsa");
+        default:
+            mio=>print(" ");
+    }
+
+    /* while */
+    while (name == "John") {
+        mio=>print("John");
+        break;
+    }
+
+    /* FOR */
+    for (int i = 0 : name.len()) {
+        print(name[i]);
+    }
+
+    /* DO WHILE */
+    do {
+        mio=>print(name);
+    }
+
+}

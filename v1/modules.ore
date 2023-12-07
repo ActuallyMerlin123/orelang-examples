@@ -1,0 +1,39 @@
+/*
+ * MODULES demonstration
+ * in orelang
+ * by Gleo
+ */
+
+/* MOD_MATH_ORE */
+#lib modmath
+
+#link "stdmio"  as stdlib
+#link "stdmath" as stdlib
+
+pub: // `pub` ìs used to make a function publically available
+init add(int x, int y) -> int 
+{
+    ret x + y;
+}
+
+pub: init mult(int x, int y) -> int { ret x * y; }
+
+
+/* MAIN_ORE */
+#link "stdmio"    as stdlib
+#link "mod_math"  as mod
+
+
+init main(void) -> code
+{
+    const int x = 4;
+    const int y = 6;
+
+    int result = modmath=>add(x, y);
+    int product = modmath=>mult(x, y);
+
+    mio=>print(result, '\n');
+    mio=>print(product, '\n')
+
+    ret code.success;
+}

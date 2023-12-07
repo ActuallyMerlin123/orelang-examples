@@ -1,0 +1,49 @@
+/*
+ * CLASSES demonstration
+ * by Gleo; in OreLang
+ */
+
+#link "stdmio" as stdlib
+#link "stdobj" as stdlib
+
+classdef person {
+    pub:
+        int age;
+        int height;
+        int wage;
+        int status;
+
+        init getInfo() -> str {
+            ret "this is a person";
+        }
+
+        init walk(void) {
+            mio=>print("walking");
+            ret;
+        }
+}
+
+classdef teacher --> person {
+    pub:
+        str subject;
+        init teach(void) {
+            mio=>print("teaching");
+            ret;
+        }
+}
+
+init main(void) -> code
+{
+    if (person.getInfo() == "this is not a person.") {
+        mio=>printerr("Failed to create person. \
+                       Info does not match.")
+        ret code.failure;
+    }
+    person Person;
+    Person.walk();
+
+    teacher Henry;
+    Henry.teach();
+
+    ret code.success;
+}

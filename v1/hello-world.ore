@@ -1,0 +1,52 @@
+/*
+ * Ore language hello world
+ * Gleo
+*/
+
+/* This is a very simple Ore hello world */
+
+/* Importing stdmio as a standard library */
+#link "stdmio" as stdlib 
+
+init main(void) -> code
+{
+    /* Defining a str string */
+    str hello = "hello, world\n";
+    mio.print(hello);
+    /* returning the object member success */
+    ret code.success;
+}
+
+/* Overly complex hello world in Ore */
+
+/* Import types: stdlib, shared, mod, ext */
+#link "stdmio"  as stdlib
+#link "stdflow" as stdlib           /* for building flows   */
+#link "stdobj"  as stdlib           /* object support       */
+#link "regex"   as shared           /* regex support        */
+
+init msg_stream(str input) -> flow
+{
+    flow output;
+    output = stream.split(input, " ");
+    ret output;
+}
+
+init main(void) -> code
+{
+    str msg       = "hello world";
+    flow msg_flow = msg_stream(msg);
+
+    if (msg_flow.is_empty()) {
+        mio.printerr("Message is empty.\n");
+        ret code.failure;
+    }
+    
+    for (int i : msg_flow.size()) {
+        mio.print(msg_flow[i]);
+        mio.print(" ");
+    }
+    mio.print("\n");
+
+    ret code.success;
+}
